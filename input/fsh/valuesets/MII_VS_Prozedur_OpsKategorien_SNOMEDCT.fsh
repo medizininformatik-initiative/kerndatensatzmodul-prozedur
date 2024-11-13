@@ -5,7 +5,8 @@ Description: "Enthaelt alle SNOMED CT Codes für ein Mapping der OPS Klassentite
 * ^url = "https://www.medizininformatik-initiative.de/fhir/core/modul-prozedur/ValueSet/procedures-category-sct"
 * insert PR_CS_VS_Version
 * insert Publisher
-* ^date = "2024-02-08"
+* insert SnomedLicense
+* ^date = "2024-11-13"
 * ^experimental = false
 * ^status = #active
 * $sct#165197003 "Diagnostic assessment"

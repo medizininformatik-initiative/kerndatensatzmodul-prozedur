@@ -5,7 +5,8 @@ Description: "Enthaelt alle SNOMED CT Procedure Codes"
 * ^url = "https://www.medizininformatik-initiative.de/fhir/core/modul-prozedur/ValueSet/procedures-sct"
 * insert PR_CS_VS_Version
 * insert Publisher
+* insert SnomedLicense
 * ^status = #active
 * ^experimental = false
-* ^date = "2024-02-08"
+* ^date = "2024-11-13"
 * include codes from system $sct where concept descendent-of #71388002

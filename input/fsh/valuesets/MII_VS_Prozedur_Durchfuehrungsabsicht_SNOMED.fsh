@@ -5,9 +5,10 @@ Description: "Durchführungsabsicht / Intention mit der Prozedur ausgeführt wir
 * ^url = "https://www.medizininformatik-initiative.de/fhir/core/modul-prozedur/ValueSet/procedures-intend"
 * insert PR_CS_VS_Version
 * insert Publisher
+* insert SnomedLicense
 * ^status = #active
 * ^experimental = false
-* ^date = "2024-02-08"
+* ^date = "2024-11-13"
 * $sct#262202000 "Therapeutic"
 * $sct#363676003 "Palliative intent"
 * $sct#261004008 "Diagnostic intent"
