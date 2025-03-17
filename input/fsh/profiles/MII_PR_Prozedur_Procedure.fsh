@@ -77,7 +77,7 @@ Description: "Dieses Profil beschreibt eine Prozedur in der Medizininformatik-In
     sct 0..1 MS
 * insert AddOpsCodingTranslation(code.coding[ops])
 * code.coding[ops] only CodingOPS
-* code.coding[ops] from OpsVS (required)
+* code.coding[ops] from mii-vs-prozedur-ops (required)
 * code.coding[ops] ^patternCoding.system = "http://fhir.de/CodeSystem/bfarm/ops"
 * code.coding[ops].extension[Seitenlokalisation] ^mustSupport = true
 * code.coding[ops].system MS
