@@ -28,7 +28,7 @@
         "version": "2018",
         "code": "9-649.60",
         "system": "http://fhir.de/CodeSystem/bfarm/ops",
-        "display": "Mehr als 0,05 bis 1 Therapieeinheit pro Woche"
+        "display": "Anzahl der Therapieeinheiten pro Woche bei Erwachsenen: Gruppentherapie durch Spezialtherapeuten: Mehr als 0,05 bis 1 Therapieeinheit pro Woche"
       }
     ]
   },

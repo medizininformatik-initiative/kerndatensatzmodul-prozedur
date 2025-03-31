@@ -7,6 +7,6 @@ Usage: #example
 * category = $sct-no-ver#18629005
 //* code.coding[0] = $sct-no-ver#80146002 "Excision of appendix (procedure)"
 * code.coding[+].version = "2018"
-* code.coding[=] = $ops#9-649.60 "Mehr als 0,05 bis 1 Therapieeinheit pro Woche"
+* code.coding[=] = $ops#9-649.60 "Anzahl der Therapieeinheiten pro Woche bei Erwachsenen: Gruppentherapie durch Spezialtherapeuten: Mehr als 0,05 bis 1 Therapieeinheit pro Woche"
 * performedDateTime = "2018-03-31"
 * subject = Reference(Patient/example)
