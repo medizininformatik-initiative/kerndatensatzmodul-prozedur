@@ -1,3 +1,42 @@
+Alias: $exp = http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation
+
+RuleSet: SupportResource (resource, expectation)
+* rest.resource[+].type = #{resource}
+* rest.resource[=].extension[0].url = $exp
+* rest.resource[=].extension[0].valueCode = {expectation}
+
+RuleSet: Profile (profile, expectation)
+* rest.resource[=].profile[+] = "{profile}"
+* rest.resource[=].profile[=].extension[0].url = $exp
+* rest.resource[=].profile[=].extension[0].valueCode = {expectation}
+
+RuleSet: SupportProfile (profile, expectation)
+// This rule set must follow a SupportResource rule set, and applies to that resource.
+* rest.resource[=].supportedProfile[+] = "{profile}|2025.0.1"
+* rest.resource[=].supportedProfile[=].extension[0].url = $exp
+* rest.resource[=].supportedProfile[=].extension[0].valueCode = {expectation}
+
+RuleSet: SupportInteraction (interaction, expectation)
+// This rule set must follow a SupportResource rule set, and applies to that resource.
+* rest.resource[=].interaction[+].code = {interaction}
+* rest.resource[=].interaction[=].extension[0].url = $exp
+* rest.resource[=].interaction[=].extension[0].valueCode = {expectation}
+
+RuleSet: SupportSearchParam (name, canonical, type, expectation)
+// This rule set must follow a SupportResource rule set, and applies to that resource.
+* rest.resource[=].searchParam[+].name = "{name}"
+* rest.resource[=].searchParam[=].definition = "{canonical}"
+* rest.resource[=].searchParam[=].type = {type}
+* rest.resource[=].searchParam[=].extension[0].url = $exp
+* rest.resource[=].searchParam[=].extension[0].valueCode = {expectation}
+
+RuleSet: SupportSpecialSearchParam (name, type, expectation)
+// This rule set must follow a SupportResource rule set, and applies to that resource.
+* rest.resource[=].searchParam[+].name = "{name}"
+* rest.resource[=].searchParam[=].type = {type}
+* rest.resource[=].searchParam[=].extension[0].url = $exp
+* rest.resource[=].searchParam[=].extension[0].valueCode = {expectation}
+
 Instance: mii-cps-prozedur-capabilitystatement
 InstanceOf: CapabilityStatement
 Usage: #definition
@@ -9,7 +48,7 @@ Usage: #definition
 * title = "MII CPS Prozedur CapabilityStatement"
 * status = #active
 * experimental = false
-* date = "2024-12-09"
+* date = "2025-04-01"
 * description = "Das vorliegende CapabilityStatement beschreibt alle verpflichtenden Interaktionen die ein konformes System unterstützen muss um das Modul Prozedur der Medizininformatik Initiative zu implementieren."
 * jurisdiction = urn:iso:std:iso:3166#DE "Germany"
 * kind = #requirements
@@ -17,63 +56,24 @@ Usage: #definition
 * format[0] = #xml
 * format[+] = #json
 * rest.mode = #server
-* rest.resource.extension.url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
-* rest.resource.extension.valueCode = #SHALL
-* rest.resource.type = #Procedure
-* rest.resource.supportedProfile = "https://www.medizininformatik-initiative.de/fhir/core/modul-prozedur/StructureDefinition/Procedure|2025.0.0"
-* rest.resource.interaction[0].extension.url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
-* rest.resource.interaction[=].extension.valueCode = #SHALL
-* rest.resource.interaction[=].code = #read
-* rest.resource.interaction[+].extension.url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
-* rest.resource.interaction[=].extension.valueCode = #SHALL
-* rest.resource.interaction[=].code = #search-type
-* rest.resource.searchParam[0].extension.url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
-* rest.resource.searchParam[=].extension.valueCode = #SHALL
-* rest.resource.searchParam[=].name = "_id"
-* rest.resource.searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Resource-id"
-* rest.resource.searchParam[=].type = #token
-* rest.resource.searchParam[+].extension.url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
-* rest.resource.searchParam[=].extension.valueCode = #SHALL
-* rest.resource.searchParam[=].name = "status"
-* rest.resource.searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Procedure-status"
-* rest.resource.searchParam[=].type = #token
-* rest.resource.searchParam[+].extension.url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
-* rest.resource.searchParam[=].extension.valueCode = #SHALL
-* rest.resource.searchParam[=].name = "category"
-* rest.resource.searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Procedure-category"
-* rest.resource.searchParam[=].type = #token
-* rest.resource.searchParam[+].extension.url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
-* rest.resource.searchParam[=].extension.valueCode = #SHALL
-* rest.resource.searchParam[=].name = "code"
-* rest.resource.searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-code"
-* rest.resource.searchParam[=].type = #token
-* rest.resource.searchParam[+].extension.url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
-* rest.resource.searchParam[=].extension.valueCode = #SHALL
-* rest.resource.searchParam[=].name = "date"
-* rest.resource.searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-date"
-* rest.resource.searchParam[=].type = #date
-* rest.resource.searchParam[+].extension.url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
-* rest.resource.searchParam[=].extension.valueCode = #SHALL
-* rest.resource.searchParam[=].name = "patient"
-* rest.resource.searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/clinical-patient"
-* rest.resource.searchParam[=].type = #reference
-* rest.resource.searchParam[+].extension.url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
-* rest.resource.searchParam[=].extension.valueCode = #SHALL
-* rest.resource.searchParam[=].name = "subject"
-* rest.resource.searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Procedure-subject"
-* rest.resource.searchParam[=].type = #reference
-* rest.resource.searchParam[+].extension.url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
-* rest.resource.searchParam[=].extension.valueCode = #SHALL
-* rest.resource.searchParam[=].name = "bodySite"
-* rest.resource.searchParam[=].definition = "https://www.medizininformatik-initiative.de/fhir/modul-meta/SearchParameter/mii-sp-meta-procedure-bodysite"
-* rest.resource.searchParam[=].type = #token
-* rest.resource.searchParam[+].extension.url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
-* rest.resource.searchParam[=].extension.valueCode = #SHALL
-* rest.resource.searchParam[=].name = "dokumentationsdatum"
-* rest.resource.searchParam[=].definition = "https://www.medizininformatik-initiative.de/fhir/modul-meta/SearchParameter/mii-sp-meta-procedure-dokumentationsdatum"
-* rest.resource.searchParam[=].type = #date
-* rest.resource.searchParam[+].extension.url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
-* rest.resource.searchParam[=].extension.valueCode = #SHALL
-* rest.resource.searchParam[=].name = "durchfuehrungsabsicht"
-* rest.resource.searchParam[=].definition = "https://www.medizininformatik-initiative.de/fhir/modul-meta/SearchParameter/mii-sp-meta-procedure-durchfuehrungsabsicht"
-* rest.resource.searchParam[=].type = #token
+
+// Procedure requirements
+* insert SupportResource(Procedure, #SHALL)
+* insert Profile(http://hl7.org/fhir/StructureDefinition/Procedure, #SHALL)
+* insert SupportProfile(https://www.medizininformatik-initiative.de/fhir/core/modul-prozedur/StructureDefinition/Procedure, #SHALL)
+* insert SupportInteraction(#read, #SHALL)
+* insert SupportInteraction(#search-type, #SHALL)
+* insert SupportSpecialSearchParam(_count, #special, #SHALL)
+* insert SupportSpecialSearchParam(_summary, #special, #SHALL)
+* insert SupportSearchParam(_id, http://hl7.org/fhir/SearchParameter/Resource-id, #token, #SHALL)
+* insert SupportSearchParam(_lastUpdated, http://hl7.org/fhir/SearchParameter/Resource-lastUpdated, #date, #SHALL)
+* insert SupportSearchParam(_profile, http://hl7.org/fhir/SearchParameter/Resource-profile, #uri, #SHALL)
+* insert SupportSearchParam(status, http://hl7.org/fhir/SearchParameter/Procedure-status, #token, #SHALL)
+* insert SupportSearchParam(category, http://hl7.org/fhir/SearchParameter/Procedure-category, #token, #SHALL)
+* insert SupportSearchParam(code, http://hl7.org/fhir/SearchParameter/clinical-code, #token, #SHALL)
+* insert SupportSearchParam(date, http://hl7.org/fhir/SearchParameter/clinical-date, #date, #SHALL)
+* insert SupportSearchParam(patient, http://hl7.org/fhir/SearchParameter/clinical-patient, #reference, #SHALL)
+* insert SupportSearchParam(subject, http://hl7.org/fhir/SearchParameter/Procedure-subject, #reference, #SHALL)
+* insert SupportSearchParam(bodySite, https://www.medizininformatik-initiative.de/fhir/modul-meta/SearchParameter/mii-sp-meta-procedure-bodysite, #token, #SHALL)
+* insert SupportSearchParam(dokumentationsdatum, https://www.medizininformatik-initiative.de/fhir/modul-meta/SearchParameter/mii-sp-meta-procedure-dokumentationsdatum, #date, #SHALL)
+* insert SupportSearchParam(durchfuehrungsabsicht, https://www.medizininformatik-initiative.de/fhir/modul-meta/SearchParameter/mii-sp-meta-procedure-durchfuehrungsabsicht, #token, #SHALL)
