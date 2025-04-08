@@ -10,3 +10,4 @@ Usage: #example
 * code.coding[=] = $ops#5-470 "Appendektomie"
 * performedDateTime = "2020-04-23"
 * subject = Reference(Patient/example)
+* bodySite.coding[snomed-ct] = $sct-no-ver#66754008 "Appendix structure (body structure)"
