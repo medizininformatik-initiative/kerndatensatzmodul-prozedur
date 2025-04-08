@@ -1,6 +1,16 @@
 ## {{page-title}}
 
+**Version: 2025.0.1**
+
+Datum 08.04.2025
+
+- `Procedure.bodySite`: Enthält jetzt optionales SNOMED-Coding Slice und übernimmt die Modellierung aus dem Modul Diagnose von `Condition.bodySite`.
+- Neu hinzugefügt wurde ein ValueSet und Binding für OPS (Canonical URL: `https://www.medizininformatik-initiative.de/fhir/core/modul-prozedur/ValueSet/mii-vs-prozedur-ops`). Dieses kann mit dem MII-Terminologieserver (https://www.ontoserver.mii-termserv.de/) expandiert werden und ermöglicht erweiterte Validierung.
+- CapabilityStatement aktualisiert: das CapabilityStatement enthält nun Anforderungsdokumentation für Suchparameter `_count` und `_summary`.
+
 **Version: 2025.0.0**
+
+Datum 09.12.2024
 
 - Dependency auf de.basisprofil.r4 aktualisiert auf [Version 1.5.0](https://simplifier.net/packages/de.basisprofil.r4/1.5.0). Die Änderung hat keine Auswirkung auf Implementierungen dieses Moduls.
 - Profile enthalten zusätzliche Beschreibungen und Übersetzungen für Implementierer und das Forschungsdatenportal für Gesundheit (FDPG).
@@ -9,6 +19,8 @@
 - Ressourcen verwenden in diesem Release modulübergreifend SNOMED CT in der Version `http://snomed.info/sct/900000000000207008/version/20240701`, um eine stabile [ValueSet-Expansion](http://hl7.org/fhir/R4/valueset.html#expansion) sicherzustellen.
 
 **Version: 2024.0.0**
+
+Datum 16.04.2024
 
 - Die veröffentlichten FHIR-Packages verwenden nun [Calender Versioning (CalVer)](https://calver.org/) nach dem Schema YYYY.MINOR.PATCH. Damit wird ein Releasezyklus im Jahresrhythmus etabliert. Die Jahresversion (YYYY) zeigt das Jahr an, in dem das Kerndatensatzmodul angewendet wird. MINOR-Versionen werden bei Einführung neuer Funktionen, Erweiterungen oder substantieller Änderungen veröffentlicht. PATCH-Versionen umfassen Bugfixes oder textuelle Korrekturen.
 - Die Benennung der Conformance-Ressourcen und Beispielinstanzen folgt nun einheitlichen [MII-Namenskonventionen](https://github.com/medizininformatik-initiative/kerndatensatz-meta/wiki/Namenskonventionen-f%C3%BCr-FHIR%E2%80%90Ressourcen-in-der-MII).
