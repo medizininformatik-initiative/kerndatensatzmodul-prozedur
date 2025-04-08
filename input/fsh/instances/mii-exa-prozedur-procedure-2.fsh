@@ -2,7 +2,7 @@ Instance: mii-exa-prozedur-procedure-2
 InstanceOf: MII_PR_Prozedur_Procedure
 Usage: #example
 * insert TestDataLabel
-* meta.profile[0] = "https://www.medizininformatik-initiative.de/fhir/core/modul-prozedur/StructureDefinition/Procedure|2025.0.0"
+* insert MetaProfile(https://www.medizininformatik-initiative.de/fhir/core/modul-prozedur/StructureDefinition/Procedure)
 * status = #completed
 * category = $sct-no-ver#18629005
 //* code.coding[0] = $sct-no-ver#80146002 "Excision of appendix (procedure)"
