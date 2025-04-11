@@ -12,7 +12,7 @@ Description: "Dieses Profil beschreibt eine Prozedur in der Medizininformatik-In
 * insert Publisher
 * insert LicenseCodeableCCBY40
 * ^status = #active
-* ^date = "2024-12-09"
+* ^date = "2025-04-08"
 * obeys proc-mii-1
 * id MS
 * meta MS
@@ -77,7 +77,7 @@ Description: "Dieses Profil beschreibt eine Prozedur in der Medizininformatik-In
     sct 0..1 MS
 * insert AddOpsCodingTranslation(code.coding[ops])
 * code.coding[ops] only CodingOPS
-* code.coding[ops] from OpsVS (required)
+* code.coding[ops] from mii-vs-prozedur-ops (required)
 * code.coding[ops] ^patternCoding.system = "http://fhir.de/CodeSystem/bfarm/ops"
 * code.coding[ops].extension[Seitenlokalisation] ^mustSupport = true
 * code.coding[ops].system MS
@@ -117,7 +117,20 @@ Description: "Dieses Profil beschreibt eine Prozedur in der Medizininformatik-In
 * bodySite ^definition = "Körperstelle der Prozedur mittels SNOMED CT inklusive Lateralität."
 * insert Translation(bodySite ^definition, de-DE, Körperstelle der Prozedur mittels SNOMED CT inklusive Lateralität.)
 * insert Translation(bodySite ^definition, en-US, The body site of the procedure using SNOMED CT including laterality.)
-* bodySite ^binding.strength = #extensible
+//* bodySite ^binding.strength = #extensible
+* bodySite.coding MS
+* bodySite.coding ^slicing.discriminator.type = #pattern
+* bodySite.coding ^slicing.discriminator.path = "system"
+* bodySite.coding ^slicing.rules = #open
+* bodySite.coding contains 
+    snomed-ct 0..1 MS 
+* insert AddSnomedCodingTranslation(bodySite.coding[snomed-ct])
+// * bodySite.coding[snomed-ct] from mii-vs-diagnose-bodystructure-snomed (required) 
+// should consider moving bodystructure VS to meta module
+* bodySite.coding[snomed-ct].system 1.. MS
+* bodySite.coding[snomed-ct].system = "http://snomed.info/sct"
+* bodySite.coding[snomed-ct].version MS
+* bodySite.coding[snomed-ct].code 1.. MS
 * note MS
 * note ^short = "Hinweis"
 * insert Translation(note ^short, de-DE, Hinweis)
