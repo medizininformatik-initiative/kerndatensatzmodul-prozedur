@@ -48,7 +48,7 @@ Usage: #definition
 * title = "MII CPS Prozedur CapabilityStatement"
 * status = #active
 * experimental = false
-* date = "2025-04-01"
+* date = "2025-10-21"
 * description = "Das vorliegende CapabilityStatement beschreibt alle verpflichtenden Interaktionen die ein konformes System unterstützen muss um das Modul Prozedur der Medizininformatik Initiative zu implementieren."
 * jurisdiction = urn:iso:std:iso:3166#DE "Germany"
 * kind = #requirements
@@ -77,3 +77,4 @@ Usage: #definition
 * insert SupportSearchParam(bodySite, https://www.medizininformatik-initiative.de/fhir/modul-meta/SearchParameter/mii-sp-meta-procedure-bodysite, #token, #SHALL)
 * insert SupportSearchParam(dokumentationsdatum, https://www.medizininformatik-initiative.de/fhir/modul-meta/SearchParameter/mii-sp-meta-procedure-dokumentationsdatum, #date, #SHALL)
 * insert SupportSearchParam(durchfuehrungsabsicht, https://www.medizininformatik-initiative.de/fhir/modul-meta/SearchParameter/mii-sp-meta-procedure-durchfuehrungsabsicht, #token, #SHALL)
+* insert SupportSearchParam(ops-seitenlokalisation, https://www.medizininformatik-initiative.de/fhir/modul-meta/SearchParameter/mii-sp-meta-procedure-ops-seitenlokalisation, #token, #SHALL)
