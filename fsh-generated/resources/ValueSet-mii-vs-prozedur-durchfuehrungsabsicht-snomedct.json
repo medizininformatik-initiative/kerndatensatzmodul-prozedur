@@ -6,7 +6,7 @@
   "title": "MII VS Prozedur Durchführungsabsicht [SNOMED CT]",
   "description": "Durchführungsabsicht / Intention mit der Prozedur ausgeführt wird",
   "url": "https://www.medizininformatik-initiative.de/fhir/core/modul-prozedur/ValueSet/procedures-intend",
-  "version": "2025.0.1",
+  "version": "2025.0.1-rc.1",
   "publisher": "Medizininformatik Initiative",
   "contact": [
     {

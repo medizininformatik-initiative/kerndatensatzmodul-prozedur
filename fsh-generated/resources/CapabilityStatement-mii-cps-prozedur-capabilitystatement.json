@@ -2,7 +2,7 @@
   "resourceType": "CapabilityStatement",
   "id": "mii-cps-prozedur-capabilitystatement",
   "url": "https://www.medizininformatik-initiative.de/fhir/core/modul-prozedur/CapabilityStatement/metadata",
-  "version": "2025.0.1",
+  "version": "2025.0.1-rc.1",
   "publisher": "Medizininformatik Initiative",
   "contact": [
     {
@@ -32,7 +32,7 @@
   "title": "MII CPS Prozedur CapabilityStatement",
   "status": "active",
   "experimental": false,
-  "date": "2025-04-01",
+  "date": "2025-10-21",
   "description": "Das vorliegende CapabilityStatement beschreibt alle verpflichtenden Interaktionen die ein konformes System unterstützen muss um das Modul Prozedur der Medizininformatik Initiative zu implementieren.",
   "jurisdiction": [
     {
@@ -64,16 +64,8 @@
             }
           ],
           "profile": "http://hl7.org/fhir/StructureDefinition/Procedure",
-          "_profile": {
-            "extension": [
-              {
-                "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
-                "valueCode": "SHALL"
-              }
-            ]
-          },
           "supportedProfile": [
-            "https://www.medizininformatik-initiative.de/fhir/core/modul-prozedur/StructureDefinition/Procedure|2025.0.1"
+            "https://www.medizininformatik-initiative.de/fhir/core/modul-prozedur/StructureDefinition/Procedure|2025.0.1-rc.1"
           ],
           "_supportedProfile": [
             {
@@ -250,6 +242,17 @@
             {
               "name": "durchfuehrungsabsicht",
               "definition": "https://www.medizininformatik-initiative.de/fhir/modul-meta/SearchParameter/mii-sp-meta-procedure-durchfuehrungsabsicht",
+              "type": "token",
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+                  "valueCode": "SHALL"
+                }
+              ]
+            },
+            {
+              "name": "ops-seitenlokalisation",
+              "definition": "https://www.medizininformatik-initiative.de/fhir/modul-meta/SearchParameter/mii-sp-meta-procedure-ops-seitenlokalisation",
               "type": "token",
               "extension": [
                 {
