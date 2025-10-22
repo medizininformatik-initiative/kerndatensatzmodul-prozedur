@@ -2,7 +2,7 @@
 
 **Version: 2025.0.1**
 
-Datum 21.10.2025
+Datum 22.10.2025
 
 - `Added`: `Procedure.bodySite`: Enthält jetzt optionales SNOMED-Coding Slice und übernimmt die Modellierung aus dem Modul Diagnose von `Condition.bodySite`.
 - `Added`: `ValueSet` und Binding für OPS (Canonical URL: `https://www.medizininformatik-initiative.de/fhir/core/modul-prozedur/ValueSet/mii-vs-prozedur-ops`). Dieses kann mit dem MII-Terminologieserver (https://www.ontoserver.mii-termserv.de/) expandiert werden und ermöglicht erweiterte Validierung.
