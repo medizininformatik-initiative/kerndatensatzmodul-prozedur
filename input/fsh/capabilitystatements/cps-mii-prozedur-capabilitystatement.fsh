@@ -5,10 +5,16 @@ RuleSet: SupportResource (resource, expectation)
 * rest.resource[=].extension[0].url = $exp
 * rest.resource[=].extension[0].valueCode = {expectation}
 
-RuleSet: Profile (profile, expectation)
+/*
+Error @ CapabilityStatement.rest[0].resource[0].profile (line 66, col73): The extension http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation 
+is not allowed to be used at this point (this element is [CapabilityStatement.rest.resource.profile, canonical]
+
+Remove expectation from profile because it is not allowed there.
+*/
+RuleSet: Profile (profile)
 * rest.resource[=].profile[+] = "{profile}"
-* rest.resource[=].profile[=].extension[0].url = $exp
-* rest.resource[=].profile[=].extension[0].valueCode = {expectation}
+//* rest.resource[=].profile[=].extension[0].url = $exp
+//* rest.resource[=].profile[=].extension[0].valueCode = {expectation}
 
 RuleSet: SupportProfile (profile, expectation)
 // This rule set must follow a SupportResource rule set, and applies to that resource.
@@ -59,7 +65,7 @@ Usage: #definition
 
 // Procedure requirements
 * insert SupportResource(Procedure, #SHALL)
-* insert Profile(http://hl7.org/fhir/StructureDefinition/Procedure, #SHALL)
+* insert Profile(http://hl7.org/fhir/StructureDefinition/Procedure)
 * insert SupportProfile(https://www.medizininformatik-initiative.de/fhir/core/modul-prozedur/StructureDefinition/Procedure, #SHALL)
 * insert SupportInteraction(#read, #SHALL)
 * insert SupportInteraction(#search-type, #SHALL)
